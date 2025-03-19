@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Modificar Libro</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/formulario.css">
+    </head>
+    <body>
+        <!-- Toma el navbar del fragmento creado, para evitar código repetido -->
+        <nav th:replace="~{fragments/navbar :: nav}"></nav>
+        
+        <div class="container-fluid m-5 contenedor">
+            <form class="formulario" th:action="@{/libro/modificar/__${libro.id}__}" method="POST">
+                <!-- Esconde el id para que se envíe su valor al controlador pero no se muestre en la UI,
+                ya que no debe permitirse la modificación del id, sino del isbn, titulo, ejemplares, autor y editorial -->
+                <input hidden th:value= "${libro.id}" name="id">
+
+                <div class="form-group my-3">
+                    <label class="mb-2">Modificar ISBN</label> 
+                    <input th:value="${libro.isbn}" type="text" class="form-control" name="isbn" placeholder="ISBN">
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="mb-2">Modificar Titulo</label>
+                    <input th:value="${libro.titulo}" type="text" class="form-control" name="titulo" placeholder="Titulo">
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="mb-2">Modificar Ejemplares</label> 
+                    <input th:value="${libro.ejemplares}" type="number" class="form-control" name="ejemplares" placeholder="Cantidad de Ejemplares">
+                </div>
+
+                <div class="form-group my-3">
+                    <select name="idAutor">
+                        <option value="">Seleccione un autor</option>
+                        <!-- Muestra la lista de autores preseleccionado el autor actual con th:selected -->
+                        <th:block th:each="autor : ${autores}">
+                            <option th:value="${autor.id}" th:selected="${autor.id == autorSeleccionado}">
+                                [[${autor.nombre}]]
+                            </option>
+                        </th:block>
+                    </select>
+                </div>
+
+                <div class="form-group my-3">
+                    <select name="idEditorial">
+                        <option value="">Seleccione una editorial</option>
+                        <!-- Muestra la lista de autores preseleccionado el autor actual con th:selected -->
+                        <th:block th:each="editorial : ${editoriales}">
+                            <option th:value="${editorial.id}" th:selected="${editorial.id == editorialSeleccionada}">
+                                [[${editorial.nombre}]]
+                            </option>
+                        </th:block>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 botones">Actualizar</button>
+            </form>
+
+            <!-- Toma el mensaje de Exito y Error del fragmento creado, para evitar código repetido -->
+            <div th:replace="~{fragments/mensajeEE :: div}"></div>
+
+            <section class=" text-center container">
+                <div class="row mt-3">
+                    <div class="divVolver">
+                        <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Toma el footer del fragmento creado, para evitar código repetido -->
+        <footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>

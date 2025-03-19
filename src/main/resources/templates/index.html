@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <!-- Toma el head del fragmento creado, para evitar código repetido -->
+    <head th:replace= "~{/fragments/head :: head}"></head>
+
+    <body>
+        <!-- Toma el navbar del fragmento creado, para evitar código repetido -->
+        <nav th:replace= "~{/fragments/navbar :: nav}"> </nav>
+
+        <!-- Toma el mensaje de Exito y Error del fragmento creado, para evitar código repetido -->
+        <div th:replace="~{fragments/mensajeEE :: div}"></div>
+        
+        <header class="header">
+            <section class="contenedorMain">
+                <div class="tituloBiblioteca">
+                    <a class="navbar-brand" href="#">BIBLIOTECA EGG</a>
+                </div>
+                <div class="container contenedorLibros">
+                    <p class="tituloLibros">¡Encuentra todos los Libros Aquí!</p>
+
+                </div>
+                <div class="bg-circle-1 bg-circle"></div>
+                <div class="bg-circle-2 bg-circle"></div>
+                <div class="bg-circle-3 bg-circle"></div>
+                <div class="bg-circle-4 bg-circle"></div>
+            </section>
+        </header>
+
+        <!-- Toma el footer del fragmento creado, para evitar código repetido -->
+        <footer th:replace="~{/fragments/footer :: footer}"></footer>
+        
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

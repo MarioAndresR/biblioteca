@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" >
+        <title>Biblioteca Egg - Registrate!</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/formulario.css">
+    </head>
+    <body>
+
+        <!-- Toma el navbar del fragmento creado, para evitar código repetido -->
+        <nav th:replace= "~{/fragments/navbar :: nav}"> </nav>
+
+        <div class="container-fluid m-5 contenedor">
+            <!-- La etiqueta "enctype" con el valor "multipart/form-data", permite el envío de 
+                datos binarios, como archivos de imagen, audio o video -->
+            <form class="formulario" th:action="@{/registro}" method="POST" enctype="multipart/form-data">
+                <div class="form-group my-3">
+                    <h3 class="card-title">Registrate!</h3>
+                </div>
+
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" name="nombre" placeholder="NOMBRE" th:value="${nombre}">
+                </div>
+
+                <div class="form-group my-3">
+                    <input type="email" class="form-control" name="email" placeholder="EMAIL" th:value="${email}">
+                </div>
+
+                <div class="form-group my-3">
+                    <input type="file" class="form-control" name="archivo">
+                </div>
+
+                <div class="form-group my-3">
+                    <input type="password" class="form-control" name="password" placeholder="CONTRASEÑA" th:value="${password}">
+                </div>
+
+                <div class="form-group my-3">
+                    <input type="password" class="form-control" name="password2" placeholder="REPETIR CONTRASEÑA" th:value="${password2}">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3 botones">Registrarme</button>
+            </form>
+
+            <section class=" text-center container">
+                <div class="row mt-3">
+                    <div class="divVolver">
+                        <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Toma el mensaje de Exito y Error del fragmento creado, para evitar código repetido -->
+        <div th:replace="~{fragments/mensajeEE :: div}"></div>
+
+        <!-- Toma el footer del fragmento creado, para evitar código repetido -->
+        <footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>

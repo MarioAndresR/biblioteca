@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registro de Editoriales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/formulario.css">
+</head>
+
+<body>
+    <!-- Toma el navbar del fragmento creado, para evitar código repetido -->
+    <nav th:replace= "~{/fragments/navbar :: nav}"> </nav>
+
+    <div class="container-fluid m-5 contenedor">
+
+        <form class="formulario" th:action="@{/editorial/registro}" method="POST">
+            <!-- Toma el mensaje de Exito y Error del fragmento creado, para evitar código repetido -->
+            <div th:replace="~{fragments/mensajeEE :: div}"></div>
+                
+            <div class="form-group my-3">
+                <label for="nombreAutor" class="mb-2">Cargar Editoriales</label>
+                <input id="nombreAutor" name="nombre" type="text" class="form-control" placeholder="Nombre del Editorial">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3 botones">Guardar</button>
+        </form>
+
+        <section class=" text-center container">
+            <div class="row mt-3">
+                <div class="divVolver">
+                    <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- Toma el footer del fragmento creado, para evitar código repetido -->
+        <footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

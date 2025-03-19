@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments/head :: head}"></head>
+    <body>
+        <!-- Toma el navbar del fragmento creado, para evitar código repetido -->
+        <nav th:replace="~{fragments/navbar :: nav}"></nav>
+
+        <div class="container-fluid mt-5">
+            <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Editar Usuario</h3>
+                    <!-- Url hardcoded con variable de pre-procesamiento th:action="@{/perfil/__${usuario.id}__}"-->
+
+                    <!-- Se cambió para que la actionUrl llegué por modelo según controlador de origen, este form
+                        sirve para editar perfil de user/admin o para modificar usuarios desde admin -->
+                    <form class="formulario"  th:action="@{${actionUrl}}" method="POST" enctype="multipart/form-data">
+                        <!-- Esconde el id, se envíe su valor al controlador pero no se muestre en la UI,
+                        ya que no debe permitirse la modificación del id -->
+                        <input hidden th:value="${id}" name="id">
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <!-- Nombre y email precargados -->
+                            <input th:value="${usuario.nombre}" type="text" class="form-control" name="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">E-mail</label>
+                            <input th:value="${usuario.email}" type="email" class="form-control" name="email" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Imagen de perfil</label>
+                            <input type="file" class="form-control" name="archivo" placeholder="Archivo">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" name="password2" placeholder="Confirmar Contraseña" >
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </div>
+                    </form>
+
+                    <!-- Message Fragment -->
+                    <div th:replace="~{fragments/mensajeEE :: div}"></div>
+                    <!-- Navigation, si es user vuelve a inicio.html, si es admin y está en modificar usuario 
+                        vuelve usuario_list sino vuelve al inicio de admin-->
+                    <div class="text-center mt-4">
+                        <a sec:authorize="hasRole('ADMIN')" th:if="${actionUrl.contains('/admin/modificar/')}" th:href="@{/admin/usuarios}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                        <a sec:authorize="hasRole('ADMIN')" th:if="${actionUrl.contains('/perfil/')}" th:href="@{/admin/dashboard}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                        <a sec:authorize="hasRole('USER')" th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
