@@ -118,6 +118,10 @@ public class LibroServicio {
             throw new MiException("El isbn del libro es requerido.");
         }
 
+        if (isbn.length() != 13) {
+            throw new MiException("El isbn del libro debe ser de 13 dígitos.");
+        }
+
         if (titulo == null || titulo.trim().isEmpty()) {
             throw new MiException("El titulo del libro es requerido.");
         }

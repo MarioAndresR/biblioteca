@@ -12,6 +12,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern.Flag;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,8 +33,10 @@ public class Usuario {
     private String nombre;
 
     @Column(nullable = false, unique = true)
+    @Email( regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", 
+        flags = Flag.CASE_INSENSITIVE,
+        message ="Please provide a valid email address")
     // @NotBlank(message = "El email del empleado es requerido")
-    // @Email
     private String email;
 
     @Column(nullable = false)

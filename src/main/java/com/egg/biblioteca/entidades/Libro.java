@@ -5,6 +5,7 @@ import java.util.Date;
 import org.hibernate.annotations.NaturalId;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Libro {
@@ -15,6 +16,7 @@ public class Libro {
     // By default @NaturalId marks an natural id attribute as immutable, so it never changes its value.
     // It is set as true to be able to modify it
     @NaturalId(mutable = true)
+    @Size(min = 13, max = 13) // ISBN is a 13-digit number
     @Column(nullable = false)
     private String isbn;
 
