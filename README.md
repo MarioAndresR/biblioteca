@@ -49,8 +49,8 @@ The system uses a MySQL database with the following main entities:
 
 ## 🚀 How to Run the Project
 1. Clone the repository:
-   git clone https://github.com/MarioAndresR/biblioteca.git
-   cd biblioteca
+   - git clone https://github.com/MarioAndresR/biblioteca.git
+   - cd biblioteca
 2. Set up your MySQL database and configure application.properties
 3. Run the project:
   ./mvnw spring-boot:run
@@ -58,11 +58,11 @@ The system uses a MySQL database with the following main entities:
 
 ## 🧠 Author
 Mario Andrés Rodríguez Osorio
-Electronics Engineer | Backend Developer (PL/SQL, Java)
+Electronics Engineer | Backend Developer (PL/SQL, Java).
 Passionate about backend development, computer vision, and data science.
 
-- **💼 LinkedIn Profile**
-- **📂 My GitHub**
+- **💼 [LinkedIn Profile](https://www.linkedin.com/in/mario-andres-rodriguez-osorio-b3b4a1126/)**
+- **📂 [My GitHub](https://github.com/MarioAndresR)**
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
