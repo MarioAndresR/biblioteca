@@ -61,6 +61,9 @@ Mario Andrés Rodríguez Osorio
 Electronics Engineer | Backend Developer (PL/SQL, Java).
 Passionate about backend development, computer vision, and data science.
 
+## 🙌 Credits
+This project is inspired by the learning resources and courses provided by [Egg Live](https://www.linkedin.com/company/egglive/posts/?feedView=all).
+
 - **💼 [LinkedIn Profile](https://www.linkedin.com/in/mario-andres-rodriguez-osorio-b3b4a1126/)**
 - **📂 [My GitHub](https://github.com/MarioAndresR)**
 
