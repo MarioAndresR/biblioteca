@@ -60,12 +60,11 @@ The system uses a MySQL database with the following main entities:
 Mario Andrés Rodríguez Osorio
 Electronics Engineer | Backend Developer (PL/SQL, Java).
 Passionate about backend development, computer vision, and data science.
+- **💼 [LinkedIn Profile](https://www.linkedin.com/in/mario-andres-rodriguez-osorio-b3b4a1126/)**
+- **📂 [My GitHub](https://github.com/MarioAndresR)**
 
 ## 🙌 Credits
 This project is inspired by the learning resources and courses provided by [Egg Live](https://www.linkedin.com/company/egglive/posts/?feedView=all).
-
-- **💼 [LinkedIn Profile](https://www.linkedin.com/in/mario-andres-rodriguez-osorio-b3b4a1126/)**
-- **📂 [My GitHub](https://github.com/MarioAndresR)**
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
